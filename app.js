@@ -4,13 +4,16 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')   // 引用套件
+
+require('dotenv').config()
+
 const routes = require('./routes')
 
 const usePassport = require('./config/passport')
 require('./config/mongoose')
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT
 
 app.engine('hbs',exphbs({defaultLayout:'main', extname:'.hbs'}))
 app.use(session({

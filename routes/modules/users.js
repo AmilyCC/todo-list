@@ -26,6 +26,9 @@ router.post('/register', (req, res) => {
   if(!name || !email || !password || !confirmPassword){
     errors.push({message: '請檢查所有欄位是否皆填寫!'})
   }
+  if(password.length < 6|| confirmPassword.length < 6){
+    errors.push({message: '密碼最少6個字！'})
+  }
   if(password !== confirmPassword){
     errors.push({message: '兩次密碼不相符！'})
   }
