@@ -5,7 +5,11 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')   // 引用套件
 
-require('dotenv').config()
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 
 const routes = require('./routes')
 
